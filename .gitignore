@@ -1,0 +1,17 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### IntelliJ IDEA ###
+.idea
+.target
+SpringRestApi.iml
+HELP.md
+demo.zip
+*.iws
+*.iml
+*.ipr
+
+
