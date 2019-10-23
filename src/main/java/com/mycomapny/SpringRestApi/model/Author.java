@@ -1,17 +1,21 @@
 package com.mycomapny.SpringRestApi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
+import org.hibernate.annotations.Proxy;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "author")
 public class Author {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "author_id")
     private Long author_id;
 
@@ -20,8 +24,9 @@ public class Author {
     private String lastname;
 
     @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "author_id", referencedColumnName = "author_id")
+    @JsonIgnore
     private Set<Book> bookSet;
 
     public Author(String name, String lastname) {

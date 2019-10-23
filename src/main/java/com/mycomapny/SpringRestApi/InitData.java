@@ -40,9 +40,9 @@ public class InitData implements CommandLineRunner {
 
         Set<Book> bookSet1 = new HashSet<>();
 
-        bookSet1.add(new Book("Wiedzmin", LocalDate.now().withYear(1980)));
-        bookSet1.add(new Book("Wiedzmin2", LocalDate.now().withYear(1980)));
-        bookSet1.add(new Book("Wiedzmin3", LocalDate.now().withYear(1980)));
+        bookSet1.add(bookRepository.save(new Book("Wiedzmin", LocalDate.now().withYear(1980))));
+        bookSet1.add(bookRepository.save(new Book("Wiedzmin2", LocalDate.now().withYear(1980))));
+        bookSet1.add(bookRepository.save(new Book("Wiedzmin3", LocalDate.now().withYear(1980))));
 
         author1.setBookSet(bookSet1);
         category1.setBookSet(bookSet1);
@@ -53,10 +53,9 @@ public class InitData implements CommandLineRunner {
         final Category category2 = new Category("Drama");
 
         Set<Book> bookSet2 = new HashSet<>();
-        bookSet2.add(new Book("Dziady", LocalDate.now().withYear(1980)));
-//        bookSet2.add(new Book("Dziady", LocalDate.parse("2008",dateTimeFormatter)));
-        bookSet2.add(new Book("Balladyna", LocalDate.now().withYear(1980)));
-        bookSet2.add(new Book("Stepy Akermanskie", LocalDate.now().withYear(1980)));
+        bookSet2.add(bookRepository.save(new Book("Dziady", LocalDate.now().withYear(1980))));
+        bookSet2.add(bookRepository.save(new Book("Balladyna", LocalDate.now().withYear(1980))));
+        bookSet2.add(bookRepository.save(new Book("Stepy Akermanskie", LocalDate.now().withYear(1980))));
 
         author2.setBookSet(bookSet2);
         category2.setBookSet(bookSet2);
